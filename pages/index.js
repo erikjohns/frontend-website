@@ -1,4 +1,5 @@
 import { Component } from "react"
+import moment from "moment"
 
 import Header from "../components/header.js"
 import Footer from "../components/footer.js"
@@ -23,30 +24,30 @@ export default class extends Component {
     return (
       <div className="layout-wrapper">
         <HeadMetadata
-          title="Coding Blog"
-          metaDescription="Nick Major is a full stack software developer that also writes about modern NodeJS and JavaScript."
+          title="Study Abroad Blog"
+          metaDescription="Erik is studying abroad and sharing his experiences."
         />
         <Header />
         <div className="homepage-container">
           <div className="homepage-introduction">
-            <h1>Hi, I'm Nick Major. I help people learn software development.</h1>
-            <p>I'm a full stack software developer that writes about modern Node.js, JavaScript, and development.</p>
+            <h1>Hi, I'm Erik and I'm Studying Abroad</h1>
+            <p>Sharing all of my thoughts and experiences from my Study Abroad Trip!</p>
           </div>
           {
             this.props.posts2 ?
             this.props.posts2.map((post, index) => {
               return (
-                <a key={index} href={`/blog/${post.urlTitle}`}>
+                <a key={index} href={`/blog/${post.urlTitle}`} className="card_a">
                   <div className="card">
                     <img src={post.thumbnailImageUrl} className="card__image"/>
                     <div class="card__content">
-                      <time datetime="" className="card__date">{post.dateTimestamp}</time>
-                      <span class="card__title">{post.urlTitle}</span>
+                      <time datetime ={moment.unix(post.dateTimestamp).format("YYYY-MM-DD")} class="card__date">{moment.unix(post.dateTimestamp).format("MMMM D, YYYY")}</time>
+                      <span className="card__title">{post.title}</span>
                     </div>
                   </div>
                 </a>
               )
-            }) : <h1>Error</h1>
+            }) : null
           }
           <div className="homepage-latest-blog-posts">
             <h2>
@@ -71,47 +72,6 @@ export default class extends Component {
                   )
                 }) : null
               }
-            </div>
-          </div>
-          <div className="homepage-projects">
-            <h2>My Projects</h2>
-            <div className="homepage-projects-list">
-              <div className="homepage-project">
-                <h3>
-                  <a href="https://github.com/discourse/discourse">
-                    <div className="homepage-project-icon">📞</div>
-                    <div className="homepage-project-title">Discourse</div>
-                  </a>
-                </h3>
-                <p>A platform for community discussion. Free, open, simple.</p>
-                <div className="homepage-project-btns">
-                  <a className="homepage-project-view-btn" href="https://github.com/discourse/discourse">View</a>
-                </div>
-              </div>
-              <div className="homepage-project">
-                <h3>
-                  <a href="https://github.com/nmajor25/seconds-converter">
-                    <div className="homepage-project-icon">⌛</div>
-                    <div className="homepage-project-title">Seconds Converter</div>
-                  </a>
-                </h3>
-                <p>Convert milliseconds or seconds to days, hours, minutes, and seconds in node.js.</p>
-                <div className="homepage-project-btns">
-                  <a className="homepage-project-view-btn" href="https://github.com/nmajor25/seconds-converter">View</a>
-                </div>
-              </div>
-              <div className="homepage-project">
-                <h3>
-                  <a href="https://github.com/showdownjs/showdown">
-                    <div className="homepage-project-icon">⌛</div>
-                    <div className="homepage-project-title">Showdown</div>
-                  </a>
-                </h3>
-                <p>A bidirectional Markdown to HTML to Markdown converter written in Javascript.</p>
-                <div className="homepage-project-btns">
-                  <a className="homepage-project-view-btn" href="https://github.com/showdownjs/showdown">View</a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

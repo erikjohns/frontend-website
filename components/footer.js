@@ -10,7 +10,7 @@ export default class extends Component {
           <a href="/contact">Contact</a>
         </div>
         <div className="footer-bottom-msg">
-          <p>Handcrafted in the U.S.A. Unless otherwise noted, all code is free to use under the MIT License.</p>
+          <p>Designed by Erik at EMJ Web Design.</p>
         </div>
       </footer>
     )

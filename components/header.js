@@ -7,8 +7,8 @@ export default class extends Component {
         <div className="header-container">
           <div className="header-logo">
             <a href="/">
-              <span className="header-logo-icon">💾</span>
-              <span className="header-logo-text">Nick Major</span>
+              <span className="header-logo-icon">🌍</span>
+              <span className="header-logo-text">Erik Abroad</span>
             </a>
           </div>
           <div className="header-links">
