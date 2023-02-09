@@ -30,7 +30,7 @@ export default class extends Component {
         <Header />
         <div className="homepage-container">
           <div className="homepage-introduction">
-            <h1>Hi, I'm Erik and I'm Studying Abroad</h1>
+            <h1>Hi, it's Erik</h1>
             <p>Sharing all of my thoughts and experiences from my Study Abroad Trip!</p>
           </div>
           {
@@ -55,12 +55,13 @@ export default class extends Component {
               <a className="homepage-latest-blog-posts-view-all" href="/blog">View all</a>
             </h2>
             <div className="homepage-latest-blog-posts-list">
+              <div className="blogContainer">
               {
                 this.props.posts ?
                 this.props.posts.map((post, index) => {
                   return (
                     <a key={index} href={`/blog/${post.urlTitle}`}>
-                      <div className="homepage-latest-blog-post">
+                      {/*<div className="homepage-latest-blog-post">
                         <div className="homepage-latest-thumbnail">
                           <img src={post.thumbnailImageUrl} />
                         </div>
@@ -68,10 +69,23 @@ export default class extends Component {
                           <h3>{post.title}</h3>
                         </div>
                       </div>
+                  */}
+                      
+                          <div className="blogCard">
+                            <div class="card__header">
+                              <img src={post.thumbnailImageUrl} alt="blog__image" className="blog__image" width="600" height="400"/>
+                            </div>
+                            <div class="card__body">
+                              <span class="tag tag-blue">{moment.unix(post.dateTimestamp).format("MMMM D, YYYY")}</span>
+                              <h4>{post.title}</h4>
+                              <p>{post.metaDescription}</p>
+                            </div>
+                          </div>
                     </a>
                   )
                 }) : null
               }
+              </div>
             </div>
           </div>
         </div>

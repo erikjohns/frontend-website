@@ -33,15 +33,14 @@ export default class extends Component {
               this.props.posts.map((post, index) => {
                 return (
                   <a key={index} href={`/blog/${post.urlTitle}`}>
-                    <div className="blog-posts-list-item">
-                      <div className="blog-posts-thumbnail">
-                        <img src={post.thumbnailImageUrl} />
+                    <div className="blogCard">
+                      <div class="card__header">
+                        <img src={post.thumbnailImageUrl} alt="blog__image" className="blog__image" width="600" height="400"/>
                       </div>
-                      <div className="blog-posts-list-item-title-and-date">
-                        <h2>{post.title}</h2>
-                        <div className="blog-posts-list-item-date">
-                          <span>{moment.unix(post.dateTimestamp).format("MMMM Do, YYYY")}</span>
-                        </div>
+                      <div class="card__body">
+                        <span class="tag tag-blue">{moment.unix(post.dateTimestamp).format("MMMM D, YYYY")}</span>
+                        <h4>{post.title}</h4>
+                        <p>{post.metaDescription}</p>
                       </div>
                     </div>
                   </a>
